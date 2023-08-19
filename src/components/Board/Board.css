@@ -74,5 +74,36 @@
   cursor: pointer;
 }
 
+.initials {
+  font-size: 12px;
+  color: var(--tag-color);
+  font-weight: 600;
+  padding: 6px 7px;
+  border-radius: 50%;
+  background-color: var(--card-color);
+  position: relative;
+  margin-right: 12px;
+}
+
+.initials>div {
+  content: "";
+  position: absolute;
+  bottom: -5%;
+  right: -5%;
+  width: 8px;
+  height: 8px;
+  margin-top: auto;
+  border: 2px solid var(--board-color);
+  border-radius: 50%;
+}
+
+.available_true {
+  background-color: #15d200;
+}
+
+.available_false {
+  background-color: #d7e1fe;
+}
+
 /* .board__top > input {
 } */

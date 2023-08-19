@@ -6,8 +6,9 @@ const getData = async () => {
         }
     });
     const data = await response.json();
+    localStorage.setItem("api-local", JSON.stringify(data));
     return data;
 }
 
-const apidata = await getData();
+const apidata = localStorage['api-local'] ? JSON.parse(localStorage['api-local']) : await getData();
 export default apidata;

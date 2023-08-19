@@ -117,7 +117,7 @@
 }
 
 .available_false {
-  background-color: var(--tag-color);
+  background-color: #d7e1fe;
 }
 
 .card__id {
@@ -129,11 +129,12 @@
 .card__text {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 8px;
+  /* justify-content: space-between; */
   margin: 0;
 }
 
-.card__text p {
+.card__text span {
   margin-top: 2px;
 }
 

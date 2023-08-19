@@ -12,6 +12,8 @@ import { usersTicketsMaped, usersMap } from "../../UsersData";
 const Card = (props) => {
   const [dropdown, setDropdown] = useState(false);
   const [modalShow, setModalShow] = useState(false);
+  const [icon, setIcon] = useState("");
+  const [iconColor, setIconColor] = useState("");
 
   const [priorityTag, setPriorityTag] = useState("");
 
@@ -42,14 +44,43 @@ const Card = (props) => {
 
   // Getting Initials
   const fullName = usersMap[props.userId]?.name;
-  const namesArray = fullName.split(" ");
-  const firstName = namesArray[0];
-  const lastName = namesArray[namesArray.length - 1];
+  const namesArray = fullName?.split(" ");
+  const firstName = namesArray ? namesArray[0] : "";
+  const lastName = namesArray && namesArray[namesArray?.length - 1];
 
-  const firstLetterFirstName = firstName.charAt(0).toUpperCase();
-  const firstLetterLastName = lastName.charAt(0).toUpperCase();
+  const firstLetterFirstName = firstName?.charAt(0).toUpperCase();
+  const firstLetterLastName = lastName?.charAt(0).toUpperCase();
 
   const initials = `${firstLetterFirstName}${firstLetterLastName}`;
+
+
+  useEffect(() => {
+    switch (props.status) {
+      case "Backlog":
+        setIcon("circle-exclamation");
+        setIconColor("#ff7b00");
+        break;
+      case "Todo":
+        setIcon("circle-notch");
+        setIconColor("");
+        break;
+      case "In progress":
+        setIcon("circle-half-stroke");
+        setIconColor("#FFFF00");
+        break;
+      case "Done":
+        setIcon("circle-check");
+        setIconColor("#5d69d1");
+        break;
+      case "Canceled":
+        setIcon("circle-xmark");
+        setIconColor("#808080");
+        break;
+
+      default:
+        break;
+    }
+  }, [props]);
 
 
   return (
@@ -78,8 +109,10 @@ const Card = (props) => {
           >
             <div className={priorityTag}></div>
             <div className="card__id">{props.id}</div>
+
             <div className="card__text">
-              <p>{props.title}</p>
+              <i className={`fa-solid fa-${icon} fa-xs`} style={{ color: `${iconColor}` }}></i>
+              <span>{props.title}</span>
               {/* <MoreHorizontal
                 className="card__more"
                 onClick={() => {
@@ -93,10 +126,12 @@ const Card = (props) => {
               {props.tag?.map((item, index) => (
                 <Tag key={index} tagName={item} color={item?.color} />
               ))}
-              <span>
-                <div className={`available_${usersMap[props.userId]?.available}`}></div>
-                {initials}
-              </span>
+              {fullName &&
+                <span>
+                  <div className={`available_${usersMap[props.userId]?.available}`}></div>
+                  {initials}
+                </span>
+              }
             </div>
 
             {/* <div className="card__footer">

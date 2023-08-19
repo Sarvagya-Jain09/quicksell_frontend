@@ -38,13 +38,18 @@ const App = () => {
     setIsDarkTheme(!isDarkTheme);
   }
 
-  const [data, setData] = useState(usersTicketsMaped);
+  const [data, setData] = useState(localStorage.getItem("kanban-board")
+    ? JSON.parse(localStorage.getItem("kanban-board"))
+    : groupedTicketsArrayByStatus
+  );
+
+  console.log(data);
 
   const [grouping, setGrouping] = useState("status");
   const [ordering, setOrdering] = useState("priority");
 
   useEffect(() => {
-    localStorage.removeItem("kanban-board");
+    // localStorage.removeItem("kanban-board");
     if (grouping === "status") {
       setData(groupedTicketsArrayByStatus);
       localStorage.setItem("kanban-board", JSON.stringify(groupedTicketsArrayByStatus));
@@ -119,12 +124,13 @@ const App = () => {
   };
 
   const addCard = (title, bid) => {
-    const index = data.findIndex((item) => item.id === bid);
+    const index = data.findIndex((item) => item.status === bid);
     const tempData = [...data];
-    tempData[index].card.push({
+    console.log(tempData[index].tickets)
+    tempData[index]?.tickets?.push({
       id: uuidv4(),
       title: title,
-      tags: [],
+      tag: [],
       task: [],
     });
     setData(tempData);
@@ -217,6 +223,7 @@ const App = () => {
                   id={item?.status || item?.priority || item?.id}
                   name={item?.status || item?.priority || item?.name}
                   card={(ordering === "priority" && item.tickets.sort((a, b) => a.priority - b.priority).reverse()) || (ordering === "title" && item.tickets.sort((a, b) => a.title.localeCompare(b.title))) || item.card || []}
+                  grouping={grouping}
                   setName={setName}
                   addCard={addCard}
                   removeCard={removeCard}
