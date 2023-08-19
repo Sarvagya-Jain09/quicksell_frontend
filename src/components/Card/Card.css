@@ -131,10 +131,7 @@
   align-items: center;
   gap: 8px;
   /* justify-content: space-between; */
-  margin: 0;
-}
-
-.card__text span {
+  /* margin: 0; */
   margin-top: 2px;
 }
 
