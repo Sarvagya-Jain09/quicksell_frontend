@@ -79,10 +79,33 @@ const App = () => {
   const dragCardInBoard = (source, destination) => {
     let tempData = data && [...data];
     const destinationBoardIdx = tempData.findIndex(
-      (item) => item.status.toString() === destination.droppableId
-    );
+      (item) => {
+        switch (grouping) {
+          case "status":
+            return item?.status?.toString() === destination.droppableId;
+          case "priority":
+            return item?.priority?.toString() === destination.droppableId;
+          case "user":
+            return item?.id?.toString() === destination.droppableId;
+
+          default:
+            break;
+        }
+      });
     const sourceBoardIdx = tempData.findIndex(
-      (item) => item.status.toString() === source.droppableId
+      (item) => {
+        switch (grouping) {
+          case "status":
+            return item?.status?.toString() === source.droppableId;
+          case "priority":
+            return item?.priority?.toString() === source.droppableId;
+          case "user":
+            return item?.id?.toString() === source.droppableId;
+
+          default:
+            break;
+        }
+      }
     );
     console.log(destinationBoardIdx, sourceBoardIdx);
     tempData[destinationBoardIdx].tickets.splice(
@@ -162,8 +185,6 @@ const App = () => {
     localStorage.setItem("kanban-board", JSON.stringify(data));
     // console.log(apidata.tickets);
   }, [data]);
-
-  const boardNames = ["Backlog", "To Do", "In Progress", "Done", "Canceled"];
 
 
   return (
