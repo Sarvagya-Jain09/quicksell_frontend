@@ -1,3 +1,5 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,5 +11,50 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+
+:root {
+  --backgroud-color: #fff5ed;
+  --body-color: #fff5ed;
+  --board-color: #f2f2f3;
+  --card-color: #fff;
+  --text-color: #000;
+  --drop-down-color: #fff;
+  --card-box-shadow: #e2dede;
+  --add-btn-hover: #000;
+  --modal-color: #fff;
+  --task-hover: #091e4214;
+  --tag-color: #383838;
+}
+
+[data-theme="dark"] {
+  --background-color: #1d2125;
+  --body-color: #2f363c;
+  --board-color: #101204;
+  --card-color: #22272b;
+  --card-box-shadow: rgb(73, 76, 98);
+  --drop-down-color: #383838;
+  --text-color: #fff;
+  --add-btn-hover: #fff;
+  --modal-color: #383838;
+  --task-hover: #212121;
+  --tag-color: #d7e1fe;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
