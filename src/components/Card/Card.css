@@ -130,9 +130,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  /* justify-content: space-between; */
-  /* margin: 0; */
   margin-top: 2px;
+}
+
+.card__text span {
+  /* margin-top: 2px; */
 }
 
 .card__more {
