@@ -14,8 +14,12 @@ const Card = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const [icon, setIcon] = useState("");
   const [iconColor, setIconColor] = useState("");
-
   const [priorityTag, setPriorityTag] = useState("");
+
+  // generating random color for user initials
+  const randomLightness = Math.floor(Math.random() * 20) + 40; // Limit lightness between 40 and 60
+  const randomSaturation = Math.floor(Math.random() * 31) + 50; // Limit saturation between 50 and 80
+  const randomColorValue = `hsl(${Math.floor(Math.random() * 360)}, ${randomSaturation}%, ${randomLightness}%)`;
 
   useEffect(() => {
     switch (props.priority) {
@@ -83,6 +87,7 @@ const Card = (props) => {
   }, [props]);
 
 
+
   return (
     <Draggable
       key={props.id.toString()}
@@ -127,7 +132,7 @@ const Card = (props) => {
                 <Tag key={index} tagName={item} color={item?.color} />
               ))}
               {fullName &&
-                <span>
+                <span style={{ backgroundColor: `${randomColorValue}` }}>
                   <div className={`available_${usersMap[props.userId]?.available}`}></div>
                   {initials}
                 </span>

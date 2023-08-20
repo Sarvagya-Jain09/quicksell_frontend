@@ -100,15 +100,16 @@
   position: relative;
 }
 
-.card__tags>span>div {
+.available_true,
+.available_false {
   content: "";
   position: absolute;
-  bottom: -5%;
-  right: -5%;
+  bottom: -8%;
+  right: -8%;
   width: 8px;
   height: 8px;
   margin-top: auto;
-  border: 2px solid var(--card-color);
+  border: 2.5px solid var(--card-color);
   border-radius: 50%;
 }
 
