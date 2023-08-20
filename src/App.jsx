@@ -19,29 +19,39 @@ const App = () => {
     setIsDarkTheme(!isDarkTheme);
   }
 
-  const [data, setData] = useState(localStorage.getItem("kanban-board")
-    ? JSON.parse(localStorage.getItem("kanban-board"))
+  const [data, setData] = useState(localStorage.getItem("kanban-board-status")
+    ? JSON.parse(localStorage.getItem("kanban-board-status"))
     : groupedTicketsArrayByStatus
   );
 
-  console.log(data);
 
   const [grouping, setGrouping] = useLocalStorage("grouping", "status");
   const [ordering, setOrdering] = useLocalStorage("ordering", "priority");
 
   useEffect(() => {
-    // localStorage.removeItem("kanban-board");
     if (grouping === "status") {
-      setData(groupedTicketsArrayByStatus);
-      localStorage.setItem("kanban-board", JSON.stringify(groupedTicketsArrayByStatus));
+      setData(localStorage.getItem("kanban-board-status") ? JSON.parse(localStorage.getItem("kanban-board-status")) : groupedTicketsArrayByStatus);
+      localStorage.setItem("kanban-board-status", JSON.stringify(groupedTicketsArrayByStatus));
     } else if (grouping === "priority") {
-      setData(groupedTicketsArrayByPriority);
-      localStorage.setItem("kanban-board", JSON.stringify(groupedTicketsArrayByPriority));
+      setData(localStorage.getItem("kanban-board-priority") ? JSON.parse(localStorage.getItem("kanban-board-priority")) : groupedTicketsArrayByPriority);
+      localStorage.setItem("kanban-board-priority", JSON.stringify(groupedTicketsArrayByPriority));
     } else if (grouping === "user") {
-      setData(usersTicketsMaped);
-      localStorage.setItem("kanban-board", JSON.stringify(usersTicketsMaped));
+      setData(localStorage.getItem("kanban-board-user") ? JSON.parse(localStorage.getItem("kanban-board-user")) : usersTicketsMaped);
+      localStorage.setItem("kanban-board-user", JSON.stringify(usersTicketsMaped));
     }
   }, [grouping]);
+
+  useEffect(() => {
+    if (grouping === "status") {
+      localStorage.setItem("kanban-board-status", JSON.stringify(data));
+    }
+    else if (grouping === "priority") {
+      localStorage.setItem("kanban-board-priority", JSON.stringify(data));
+    }
+    else if (grouping === "user") {
+      localStorage.setItem("kanban-board-user", JSON.stringify(data));
+    }
+  }, [data]);
 
 
   // const defaultDark = window.matchMedia(

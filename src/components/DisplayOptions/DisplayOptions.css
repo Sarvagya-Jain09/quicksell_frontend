@@ -58,10 +58,27 @@
     opacity: 0.85;
 }
 
+.btnReset {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    background-color: #fff;
+    color: #101204;
+}
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .button>div {
         display: none;
+    }
+
+    .board__dropdown>div {
+        gap: 20px;
     }
 }

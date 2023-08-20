@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import Dropdown from '../Dropdown/Dropdown';
 import './DisplayOptions.css';
 
 const DisplayOptions = ({ grouping, ordering, setGrouping, setOrdering }) => {
     const [dropdown, setDropdown] = useState(false);
+
+    const resetData = () => {
+        localStorage.removeItem("kanban-board-status");
+        localStorage.removeItem("kanban-board-priority");
+        localStorage.removeItem("kanban-board-user");
+        localStorage.removeItem("grouping");
+        localStorage.removeItem("ordering");
+        localStorage.removeItem("theme");
+
+        window.location.reload();
+    }
 
     return (
         <div className="dropdown__container">
@@ -11,7 +21,6 @@ const DisplayOptions = ({ grouping, ordering, setGrouping, setOrdering }) => {
                 className="button"
                 onClick={() => {
                     setDropdown(!dropdown);
-                    console.log(dropdown);
                 }}
             >
                 <i className="fa-solid fa-list"></i>
@@ -33,6 +42,12 @@ const DisplayOptions = ({ grouping, ordering, setGrouping, setOrdering }) => {
                             <option value="priority">Priority</option>
                             <option value="title">Title</option>
                         </select>
+                    </div>
+                    <div>
+                        <button onClick={resetData} className="btnReset" style={{ margin: "auto", marginTop: "5px" }}>
+                            <i className="fa-solid fa-clock-rotate-left"></i>
+                            <div>Reset</div>
+                        </button>
                     </div>
                 </div>
 
