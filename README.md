@@ -1,70 +1,87 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Plan It (Kanban Board)
 
-## Available Scripts
+This is a Kanban Board project, which fetches data from an API() and displays it in boards format and gives the option to edit it as well as drag it to different cards.
 
-In the project directory, you can run:
 
-### `npm start`
+![Logo](https://github.com/MihirBibhuty/Plan-It-Kanban/assets/77892621/e14663d9-9664-4c8e-9cfc-c376a89d976c)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshots
 
-### `npm test`
+![Web Screenshot](https://github-production-user-asset-6210df.s3.amazonaws.com/77892621/261825016-caa4257e-32dd-4e8b-9f96-31f1ff70f169.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Phone Screenshot](https://github.com/MihirBibhuty/Plan-It-Kanban/assets/77892621/01bef63c-5325-4430-988a-dad373075d57)
 
-### `npm run build`
+## Live Link
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+https://plan-it-kanban.vercel.app/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Run Locally
 
-### `npm run eject`
+Clone the project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+  git clone https://github.com/MihirBibhuty/Plan-It-Kanban
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Go to the project directory
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+  cd plan-it-kanban
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Install dependencies
 
-## Learn More
+```bash
+  npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Start the server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  npm run start
+```
 
-### Code Splitting
+Build the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+  npm run build
+```
+## API Reference
 
-### Analyzing the Bundle Size
+#### To Get all **Tickets** and **Users** data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```http
+  GET https://api.quicksell.co/v1/internal/frontend-assignment
+```
+## Features
 
-### Making a Progressive Web App
+- Light/dark mode toggle
+- Fetch data from API
+- Grouping of cards by 3 ways (Status, User, Priority)
+- Ordering of cards by 2 ways (Priority, Title)
+- Drag and drop of the cards
+- Cross platform (Responsive)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Client:** React, CSS, React-Beautiful-DnD, Font Awesome, React Feathers
 
-### Deployment
+## Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+ - This project was bootstrapped with [Create React App](https://awesomeopensource.com/project/elangosundar/awesome-README-templates).
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Authors
+
+- [@MihirBibhuty](https://github.com/MihirBibhuty)
+
+
+## 🔗 Links
+[![resume](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/MihirBibhuty/Plan-It-Kanban/files/12386959/MihirBibhuty_CV.pdf)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mihir-bibhuty/)
+

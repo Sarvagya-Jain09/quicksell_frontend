@@ -1,22 +1,3 @@
-// import React, { useState } from 'react';
-// import ThemeContext from './context/ThemeContext';
-// import Home from './components/Home';
-// import './App.css';
-
-// const App = () => {
-//   const [isDarkTheme, setIsDarkTheme] = useState(false);
-
-//   const toggleTheme = () => {
-//     setIsDarkTheme(!isDarkTheme);
-//   }
-
-//   return (
-//     <ThemeContext.Provider value={{ isDarkTheme, toggleTheme: toggleTheme }}>
-//       <Home />
-//     </ThemeContext.Provider>
-//   )
-// }
-
 import React, { useEffect, useState } from "react";
 import ThemeContext from './context/ThemeContext';
 import "./App.css";
@@ -45,8 +26,8 @@ const App = () => {
 
   console.log(data);
 
-  const [grouping, setGrouping] = useState("status");
-  const [ordering, setOrdering] = useState("priority");
+  const [grouping, setGrouping] = useLocalStorage("grouping", "status");
+  const [ordering, setOrdering] = useLocalStorage("ordering", "priority");
 
   useEffect(() => {
     // localStorage.removeItem("kanban-board");
@@ -62,14 +43,15 @@ const App = () => {
     }
   }, [grouping]);
 
-  const defaultDark = window.matchMedia(
-    "(prefers-colors-scheme: dark)"
-  ).matches;
-  const [theme, setTheme] = useLocalStorage(
-    "theme",
-    defaultDark ? "dark" : "light"
-  );
 
+  // const defaultDark = window.matchMedia(
+  //   "(prefers-colors-scheme: dark)"
+  // ).matches;
+  // const [theme, setTheme] = useLocalStorage(
+  //   "theme",
+  //   defaultDark ? "dark" : "light"
+  // );
+  const [theme, setTheme] = useLocalStorage("theme", "dark");
   const switchTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
@@ -194,57 +176,42 @@ const App = () => {
 
 
   return (
-    <ThemeContext.Provider value={{ isDarkTheme, toggleTheme: toggleTheme }}>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div className="App" data-theme={theme}>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="App" data-theme={theme}>
 
-          {/* <Navbar /> */}
-          <Navbar grouping={grouping} setGrouping={setGrouping} ordering={ordering} setOrdering={setOrdering} switchTheme={switchTheme} />
+        {/* <Navbar /> */}
+        <Navbar grouping={grouping} setGrouping={setGrouping} ordering={ordering} setOrdering={setOrdering} theme={theme} switchTheme={switchTheme} />
 
-          <div className="app_outer">
-            <div className="app_boards">
-              {/* {data.map((item) => (
-                <Board
-                  key={item.id}
-                  id={item.id}
-                  name={item.boardName}
-                  card={item.card}
-                  setName={setName}
-                  addCard={addCard}
-                  removeCard={removeCard}
-                  removeBoard={removeBoard}
-                  updateCard={updateCard}
-                />
-              ))} */}
+        <div className="app_outer">
+          <div className="app_boards">
 
-              {data.map((item, index) => (
-                <Board
-                  key={index}
-                  id={item?.status || item?.priority || item?.id}
-                  name={item?.status || item?.priority || item?.name}
-                  card={(ordering === "priority" && item.tickets.sort((a, b) => a.priority - b.priority).reverse()) || (ordering === "title" && item.tickets.sort((a, b) => a.title.localeCompare(b.title))) || item.card || []}
-                  grouping={grouping}
-                  setName={setName}
-                  addCard={addCard}
-                  removeCard={removeCard}
-                  removeBoard={removeBoard}
-                  updateCard={updateCard}
-                />
-              ))}
+            {data.map((item, index) => (
+              <Board
+                key={index}
+                id={item?.status || item?.priority || item?.id}
+                name={item?.status || item?.priority || item?.name}
+                card={(ordering === "priority" && item.tickets.sort((a, b) => a.priority - b.priority).reverse()) || (ordering === "title" && item.tickets.sort((a, b) => a.title.localeCompare(b.title))) || item.card || []}
+                grouping={grouping}
+                setName={setName}
+                addCard={addCard}
+                removeCard={removeCard}
+                removeBoard={removeBoard}
+                updateCard={updateCard}
+              />
+            ))}
 
-              {/* <Editable
+            {/* <Editable
                 className={"add__board"}
                 name={"Add Board"}
                 btnName={"Add Board"}
                 onSubmit={addBoard}
                 placeholder={"Enter Board Title"}
               /> */}
-            </div>
           </div>
-
         </div>
-      </DragDropContext>
-    </ThemeContext.Provider>
+
+      </div>
+    </DragDropContext>
   );
 }
 
