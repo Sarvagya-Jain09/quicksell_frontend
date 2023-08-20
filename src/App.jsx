@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ThemeContext from './context/ThemeContext';
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Board from "./components/Board/Board";
