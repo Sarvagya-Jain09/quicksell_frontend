@@ -4,9 +4,6 @@
 This is a Kanban Board project, which fetches data from an API() and displays it in boards format and gives the option to edit it as well as drag it to different cards.
 
 
-![Logo](https://github.com/MihirBibhuty/Plan-It-Kanban/assets/77892621/e14663d9-9664-4c8e-9cfc-c376a89d976c)
-
-
 ## Screenshots
 
 ![Web Screenshot](https://github-production-user-asset-6210df.s3.amazonaws.com/77892621/261825016-caa4257e-32dd-4e8b-9f96-31f1ff70f169.png)
@@ -83,5 +80,6 @@ Build the project
 
 ## 🔗 Links
 [![resume](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/MihirBibhuty/Plan-It-Kanban/files/12386959/MihirBibhuty_CV.pdf)
+
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mihir-bibhuty/)
 
