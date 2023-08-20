@@ -17,9 +17,14 @@ const Card = (props) => {
   const [priorityTag, setPriorityTag] = useState("");
 
   // generating random color for user initials
-  const randomLightness = Math.floor(Math.random() * 20) + 40; // Limit lightness between 40 and 60
-  const randomSaturation = Math.floor(Math.random() * 31) + 50; // Limit saturation between 50 and 80
-  const randomColorValue = `hsl(${Math.floor(Math.random() * 360)}, ${randomSaturation}%, ${randomLightness}%)`;
+  const [randomColorValue, setRandomColorValue] = useState("");
+  useEffect(() => {
+    const randomLightness = Math.floor(Math.random() * 20) + 40; // Limit lightness between 40 and 60
+    const randomSaturation = Math.floor(Math.random() * 31) + 50; // Limit saturation between 50 and 80
+    setRandomColorValue(`hsl(${Math.floor(Math.random() * 360)}, ${randomSaturation}%, ${randomLightness}%)`);
+
+    console.log(randomColorValue);
+  }, []);
 
   useEffect(() => {
     switch (props.priority) {
