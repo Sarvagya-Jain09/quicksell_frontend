@@ -48,10 +48,10 @@ Build the project
 ```
 ## API Reference
 
-#### To Get all **Tickets** and **Users** data
+#### To Get all **Tickets** and **Users** data (GET request)
 
 ```http
-  GET https://api.quicksell.co/v1/internal/frontend-assignment
+  https://api.quicksell.co/v1/internal/frontend-assignment
 ```
 ## Features
 
@@ -80,6 +80,5 @@ Build the project
 
 ## 🔗 Links
 [![resume](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/MihirBibhuty/Plan-It-Kanban/files/12386959/MihirBibhuty_CV.pdf)
-
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mihir-bibhuty/)
 
