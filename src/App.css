@@ -31,8 +31,9 @@ body {
     width: 100%;
     height: 100%;
     overflow-x: auto;
-    background-color: var(--body-color);
-    /* background-color: #fff5ed; */
+    /* background-color: var(--body-color); */
+
+    background-color: #ecebeb;
 }
 
 .app_boards {

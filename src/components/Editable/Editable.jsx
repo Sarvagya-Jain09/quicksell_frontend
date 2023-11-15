@@ -29,7 +29,7 @@ const Editable = (props) => {
             />
             <div className="btn__control">
               <button className="add__btn" type="submit">
-                {`${props.btnName}` || "Add"}
+                {`${props.btnName}` || ""}
               </button>
               <X
                 className="close"
@@ -48,7 +48,7 @@ const Editable = (props) => {
           }}
         >
           {props.defaultValue === undefined ? <Plus /> : <></>}
-          {props?.name || "Add"}
+          {props?.name || ""}
         </p>
       )}
     </div>

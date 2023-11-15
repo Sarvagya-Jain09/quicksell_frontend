@@ -139,7 +139,16 @@ export default function Board(props) {
             </p>
           </div>
         )}
-
+        <div className="board__footer">
+            <button className="add_btns"><i className="fa-solid fa-add"></i></button>
+          {/* <Editable
+            name={""}
+            btnName={""}
+            placeholder={"Enter Card Title"}
+            onSubmit={(value) => props.addCard(value, props.id)}
+          /> */}
+            <button className="add_btns">...</button>
+        </div>
         {/* <div
           onClick={() => {
             setDropdown(!dropdown);
@@ -178,6 +187,7 @@ export default function Board(props) {
                 title={item.title}
                 tag={item.tag}
                 status={item.status}
+                grouping = {props.grouping}
                 priority={item.priority}
                 availability={item.availability}
                 userId={item.userId}
@@ -192,14 +202,7 @@ export default function Board(props) {
         )}
       </Droppable>
 
-      <div className="board__footer">
-        <Editable
-          name={"Add Card"}
-          btnName={"Add Card"}
-          placeholder={"Enter Card Title"}
-          onSubmit={(value) => props.addCard(value, props.id)}
-        />
-      </div>
+      
     </div>
   );
 }

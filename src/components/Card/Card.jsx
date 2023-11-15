@@ -15,6 +15,7 @@ const Card = (props) => {
   const [icon, setIcon] = useState("");
   const [iconColor, setIconColor] = useState("");
   const [priorityTag, setPriorityTag] = useState("");
+  // const [groups,setGrpups]=useState(true);
 
   // generating random color for user initials
   const [randomColorValue, setRandomColorValue] = useState("");
@@ -56,6 +57,7 @@ const Card = (props) => {
   const namesArray = fullName?.split(" ");
   const firstName = namesArray ? namesArray[0] : "";
   const lastName = namesArray && namesArray[namesArray?.length - 1];
+  const groups = props.grouping==='user'?false:true;
 
   const firstLetterFirstName = firstName?.charAt(0).toUpperCase();
   const firstLetterLastName = lastName?.charAt(0).toUpperCase();
@@ -136,7 +138,7 @@ const Card = (props) => {
               {props.tag?.map((item, index) => (
                 <Tag key={index} tagName={item} color={item?.color} />
               ))}
-              {fullName &&
+              {fullName && groups &&
                 <span style={{ backgroundColor: `${randomColorValue}` }}>
                   <div className={`available_${usersMap[props.userId]?.available}`}></div>
                   {initials}

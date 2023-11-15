@@ -4,16 +4,16 @@ import './DisplayOptions.css';
 const DisplayOptions = ({ grouping, ordering, setGrouping, setOrdering }) => {
     const [dropdown, setDropdown] = useState(false);
 
-    const resetData = () => {
-        localStorage.removeItem("kanban-board-status");
-        localStorage.removeItem("kanban-board-priority");
-        localStorage.removeItem("kanban-board-user");
-        localStorage.removeItem("grouping");
-        localStorage.removeItem("ordering");
-        localStorage.removeItem("theme");
+    // const resetData = () => {
+    //     localStorage.removeItem("kanban-board-status");
+    //     localStorage.removeItem("kanban-board-priority");
+    //     localStorage.removeItem("kanban-board-user");
+    //     localStorage.removeItem("grouping");
+    //     localStorage.removeItem("ordering");
+    //     localStorage.removeItem("theme");
 
-        window.location.reload();
-    }
+    //     window.location.reload();
+    // }
 
     return (
         <div className="dropdown__container">
@@ -25,6 +25,7 @@ const DisplayOptions = ({ grouping, ordering, setGrouping, setOrdering }) => {
             >
                 <i className="fa-solid fa-list"></i>
                 <div>Display</div>
+                {/* <i className="fa-thin fa-list-dropdown"></i> */}
             </button>
             {dropdown && (
                 <div className="board__dropdown">
@@ -44,10 +45,10 @@ const DisplayOptions = ({ grouping, ordering, setGrouping, setOrdering }) => {
                         </select>
                     </div>
                     <div>
-                        <button onClick={resetData} className="btnReset" style={{ margin: "auto", marginTop: "5px" }}>
+                        {/* <button onClick={resetData} className="btnReset" style={{ margin: "auto", marginTop: "5px" }}>
                             <i className="fa-solid fa-clock-rotate-left"></i>
                             <div>Reset</div>
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 

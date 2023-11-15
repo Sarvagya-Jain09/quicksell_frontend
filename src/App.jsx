@@ -13,10 +13,10 @@ import DisplayOptions from "./components/DisplayOptions/DisplayOptions";
 
 
 const App = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-  const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
-  }
+  // const [isDarkTheme, setIsDarkTheme] = useState(false);
+  // const toggleTheme = () => {
+  //   setIsDarkTheme(!isDarkTheme);
+  // }
 
   const [data, setData] = useState(localStorage.getItem("kanban-board-status")
     ? JSON.parse(localStorage.getItem("kanban-board-status"))
@@ -60,10 +60,10 @@ const App = () => {
   //   "theme",
   //   defaultDark ? "dark" : "light"
   // );
-  const [theme, setTheme] = useLocalStorage("theme", "dark");
-  const switchTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  // const [theme, setTheme] = useLocalStorage("theme", "dark");
+  // const switchTheme = () => {
+  //   setTheme(theme === "light" ? "dark" : "light");
+  // };
 
   const setName = (title, bid) => {
     const index = data.findIndex((item) => item.id === bid);
@@ -115,8 +115,9 @@ const App = () => {
   };
 
   const addCard = (title, bid) => {
-    const index = data.findIndex((item) => item.status === bid);
+    const index = data?.findIndex((item) => item.status === bid);
     const tempData = [...data];
+    // console.log(tempData);
     console.log(tempData[index].tickets)
     tempData[index]?.tickets?.push({
       id: uuidv4(),
@@ -186,10 +187,10 @@ const App = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="App" data-theme={theme}>
+      <div className="App">
 
         {/* <Navbar /> */}
-        <Navbar grouping={grouping} setGrouping={setGrouping} ordering={ordering} setOrdering={setOrdering} theme={theme} switchTheme={switchTheme} />
+        <Navbar grouping={grouping} setGrouping={setGrouping} ordering={ordering} setOrdering={setOrdering} />
 
         <div className="app_outer">
           <div className="app_boards">
